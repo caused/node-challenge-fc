@@ -1,6 +1,18 @@
   version: '3'
 
   services:
+
+    proxy:
+      build: 
+        context: proxy
+      tty: true
+      networks:
+        - node-network
+      container_name: proxy
+      restart: always
+      ports:
+        - 80:80
+
     app:
       depends_on:
         - db
