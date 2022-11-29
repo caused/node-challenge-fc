@@ -11,7 +11,7 @@
       container_name: proxy
       restart: always
       ports:
-        - 80:80
+        - 8080:80
 
     app:
       depends_on:
@@ -24,6 +24,7 @@
         - node-network
       volumes:
         - ./src:/usr/src/app
+        - /usr/src/app/node_modules
       container_name: app
       ports:
         - 3000:3000
